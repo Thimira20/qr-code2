@@ -14,7 +14,6 @@ function Steps(props) {
             <span className="stepText">Paste your link </span>
 
             <button className="stepButton">
-              +
               <DoubleArrowIcon className="stepIcon" />
             </button>
           </div>
