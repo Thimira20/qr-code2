@@ -1,0 +1,76 @@
+.navBarBox {
+  display: flex;
+  background-color: rgba(67, 0, 97, 255);
+  position: sticky;
+  top: 0;
+  border-color: #ffffff;
+  border-bottom: 0px solid #ccc;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+    rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+    rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.navBarBoxLeft {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.easy {
+  margin-top: 8px;
+  margin-bottom: 0;
+  text-shadow: 0px 15px 40px rgba(0, 0, 0, 0.35);
+  font-family: Kanit;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 25px;
+  color: white;
+}
+
+.qr {
+  margin-top: 0;
+  margin-bottom: 8px;
+  background: linear-gradient(180deg, #ffffff 45%, #828184 55%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: Kanit;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 60px;
+}
+
+.navBarBoxCenter {
+  flex: 1;
+}
+
+.navBarBoxRight {
+  flex: 2;
+  margin-left: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navButton {
+  background-color: rgba(67, 0, 97, 255);
+  border-color: white;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 15px;
+  padding-left: 15px;
+  cursor: pointer;
+  border-radius: 8px;
+  border-width: 0;
+  transition: background-color 0.5s, color 0.5s;
+  font-weight: bold;
+}
+
+.navButton:hover {
+  background-color: white;
+  color: rgba(67, 0, 97, 255);
+}

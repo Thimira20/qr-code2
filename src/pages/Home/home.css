@@ -1,0 +1,54 @@
+.homeBox {
+  background-color: rgba(67, 0, 97, 255);
+  display: flex;
+  height: 768px;
+}
+
+.homeBoxLeft {
+  flex: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.homeBoxRight {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.leftBoxContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rightBoxContainer {
+  background-color: aliceblue;
+  display: flex;
+  align-items: center;
+  height: auto;
+  box-shadow: rgba(19, 18, 18, 0.541) 0px 25px 50px -12px;
+}
+
+.homeQr {
+  height: 200px;
+}
+
+@media (max-width: 630px) {
+  .homeBox {
+    flex-direction: column;
+  }
+}
+
+.text {
+  text-align: center;
+  text-shadow: 0px 15px 40px rgba(0, 0, 0, 0.35);
+  font-family: Kanit;
+  font-size: 100px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 110px;
+  margin: 0 0;
+}
