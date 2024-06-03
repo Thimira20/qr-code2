@@ -8,10 +8,18 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <Home />
-      <Steps />
-      <Genarator />
-      <AboutUs />
+      <div id="homeSection">
+        <Home />
+      </div>
+      <div id="stepsSection">
+        <Steps />
+      </div>
+      <div id="generatorSection">
+        <Genarator />
+      </div>
+      <div id="aboutUsSection">
+        <AboutUs />
+      </div>
     </div>
   );
 }
