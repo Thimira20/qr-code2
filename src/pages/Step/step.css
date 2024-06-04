@@ -1,6 +1,5 @@
 .stepBox {
   background-color: rgba(67, 0, 97, 255);
-  height: 768px;
   display: flex;
   flex-direction: column;
 }
@@ -91,7 +90,7 @@
   font-size: 30px;
   font-style: normal;
   font-weight: 700;
-  line-height: 50px;
+  line-height: 40px;
   display: flex;
   justify-content: center;
   transition: background-color 0.5s, color 0.5s, border-radius 0.5s,
@@ -130,8 +129,39 @@
   justify-content: center;
 }
 
-@media (max-width: 630px) {
+@media screen and (max-width: 630px) {
   .stepBoxBottom {
     flex-direction: column;
+  }
+  .rightImage {
+    height: 150px;
+  }
+  .imageBox {
+    margin-bottom: 35px;
+  }
+  .stepText {
+    font-size: 20px;
+    line-height: 25px;
+  }
+  .stepTopic {
+    font-size: 35px;
+    line-height: 40px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .rightImage {
+    height: 100px;
+  }
+  .imageBox {
+    margin-bottom: 25px;
+  }
+  .stepText {
+    font-size: 15px;
+    line-height: 20px;
+  }
+  .stepTopic {
+    font-size: 30px;
+    line-height: 35px;
   }
 }

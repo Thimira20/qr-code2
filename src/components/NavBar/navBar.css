@@ -12,7 +12,8 @@
 }
 
 .navBarBoxLeft {
-  width: 250px;
+  width: auto;
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -50,10 +51,11 @@
 
 .navBarBoxRight {
   flex: 2;
-  margin-left: 50px;
+  margin: auto auto;
+  padding: auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .navButton {
@@ -74,4 +76,10 @@
 .navButton:hover {
   background-color: white;
   color: rgba(67, 0, 97, 255);
+}
+
+@media screen and (max-width: 400px) {
+  .navBarBoxRight {
+    flex-wrap: wrap;
+  }
 }

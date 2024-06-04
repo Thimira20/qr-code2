@@ -133,8 +133,50 @@
   display: flex;
 }
 
+.delButton {
+  display: flex;
+  padding: 7px 20px 7px 20px;
+  font-size: 14px;
+  border-radius: 20px;
+  border-width: 5px;
+  border-color: greenyellow;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transition: background-color 0.5s, color 0.5s, font-weght 0.5s,
+    box-shadow 0.5s;
+}
+
+.delButton:hover {
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  font-weight: bold;
+  background-color: rgb(189, 245, 197);
+  color: rgba(67, 0, 97, 255);
+}
+
 @media (max-width: 700px) {
   .genaratorBoxUp {
     flex-direction: column;
+    margin: auto;
+  }
+  .buttonBox {
+    margin-top: 30px;
+  }
+  .inputBox {
+    margin: 20px 40px auto 40px;
+    background-color: aqua;
+    justify-items: left;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .genTopic {
+    font-size: 35px;
+    line-height: 40px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .genTopic {
+    font-size: 30px;
+    line-height: 35px;
   }
 }

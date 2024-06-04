@@ -25,7 +25,7 @@ function Genarator(props) {
         </div>
       </div>
       <div className="genaratorBoxBottom">
-        <button className="genButton">Download</button>
+        <button className="delButton">Download</button>
       </div>
     </div>
   );

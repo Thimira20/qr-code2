@@ -46,7 +46,6 @@ function NavBar(props) {
           Contact
         </button>
       </div>
-      <div className="navBarBoxCenter"></div>
     </div>
   );
 }

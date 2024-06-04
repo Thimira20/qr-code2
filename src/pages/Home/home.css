@@ -25,20 +25,36 @@
 }
 
 .rightBoxContainer {
-  background-color: aliceblue;
   display: flex;
   align-items: center;
   height: auto;
-  box-shadow: rgba(19, 18, 18, 0.541) 0px 25px 50px -12px;
 }
 
 .homeQr {
   height: 200px;
+  -webkit-animation: spin 30s linear infinite;
+  -moz-animation: spin 30s linear infinite;
+  animation: spin 30s linear infinite;
+  background-color: whitesmoke;
+  box-shadow: rgba(19, 18, 18, 0.541) 0px 25px 50px -12px;
 }
 
-@media (max-width: 630px) {
-  .homeBox {
-    flex-direction: column;
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
@@ -51,4 +67,18 @@
   font-weight: 700;
   line-height: 110px;
   margin: 0 0;
+}
+
+@media (max-width: 630px) {
+  .homeBox {
+    flex-direction: column;
+  }
+  .text {
+    font-size: 70px;
+    line-height: 100px;
+    color: azure;
+  }
+  .homeQr {
+    height: 170px;
+  }
 }
