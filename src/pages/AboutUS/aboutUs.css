@@ -35,6 +35,7 @@
 .aboutUp {
   flex: 6;
   background-color: aqua;
+  min-height: 400px;
 }
 
 .aboutDown {

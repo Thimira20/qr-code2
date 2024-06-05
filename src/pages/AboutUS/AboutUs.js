@@ -6,6 +6,24 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 function AboutUs(props) {
+  const handleHomeClick = () => {
+    document
+      .getElementById("homeSection")
+      .scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleStepsClick = () => {
+    document
+      .getElementById("stepsSection")
+      .scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleGenerateClick = () => {
+    document
+      .getElementById("generatorSection")
+      .scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div className="aboutBox">
       <div className="aboutTop">
@@ -18,9 +36,15 @@ function AboutUs(props) {
         </div>
         <div className="spacing"></div>
         <div className="rightHelpBar">
-          <button className="helpButton">Home</button>
-          <button className="helpButton">Steps</button>
-          <button className="helpButton">Genarate</button>
+          <button className="helpButton" onClick={handleHomeClick}>
+            Home
+          </button>
+          <button className="helpButton" onClick={handleStepsClick}>
+            Steps
+          </button>
+          <button className="helpButton" onClick={handleGenerateClick}>
+            Genarate
+          </button>
         </div>
         <div className="spacing"></div>
       </div>
@@ -30,10 +54,18 @@ function AboutUs(props) {
           <p className="copyright"> All rights reservered 2024</p>
         </div>
         <div className="aboutBottomRight">
-          <InstagramIcon className="social" />
-          <FacebookIcon className="social" />
-          <LinkedInIcon className="social" />
-          <GitHubIcon className="social" />
+          <a href="https://www.instagram.com/thimira_navodya_?igsh=YXhxNjducGk3aGQx">
+            <InstagramIcon className="social" />
+          </a>
+          <a href="https://www.facebook.com/thimira.navodya.1?mibextid=kFxxJD">
+            <FacebookIcon className="social" />
+          </a>
+          <a href="https://www.linkedin.com/in/thimira-navodya-59157a244?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BBiVkeTUiRz%2BhqUyeGhyicg%3D%3D">
+            <LinkedInIcon className="social" />
+          </a>
+          <a href="https://github.com/Thimira20">
+            <GitHubIcon className="social" />
+          </a>
         </div>
       </div>
     </div>

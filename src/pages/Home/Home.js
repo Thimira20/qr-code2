@@ -12,9 +12,10 @@ function Home(props) {
         </div>
       </div>
       <div className="homeBoxRight">
-        <div className="rightBoxContainer">
+        {/* <div className="rightBoxContainer">
           <img src="/images/qr-codeHome.png" alt="" className="homeQr" />
-        </div>
+        </div> */}
+        <div className="loader1"></div>
       </div>
     </div>
   );

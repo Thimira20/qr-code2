@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "./step.css";
 import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
 
 function Steps(props) {
+  const [image, setImage] = useState("/images/step1.jpg");
+
   return (
     <div className="stepBox">
       <div className="stepBoxTop">
@@ -11,30 +13,41 @@ function Steps(props) {
       <div className="stepBoxBottom">
         <div className="bottomLeft">
           <div className="stepsList">
-            <span className="stepText">Paste your link </span>
+            <span className="stepText">
+              Paste your link and Select the size
+            </span>
 
-            <button className="stepButton">
+            <button
+              className="stepButton"
+              onClick={() => setImage("/images/step1.jpg")}
+            >
               <DoubleArrowIcon className="stepIcon" />
             </button>
           </div>
           <div className="stepsList">
-            <span className="stepText">Click the "Genarate"</span>
+            <span className="stepText">Click the "Generate"</span>
 
-            <button className="stepButton">
+            <button
+              className="stepButton"
+              onClick={() => setImage("/images/step2.jpg")}
+            >
               <DoubleArrowIcon className="stepIcon" />
             </button>
           </div>
           <div className="stepsList">
             <span className="stepText">Download your QR code</span>
 
-            <button className="stepButton">
+            <button
+              className="stepButton"
+              onClick={() => setImage("/images/step3.jpg")}
+            >
               <DoubleArrowIcon className="stepIcon" />
             </button>
           </div>
         </div>
         <div className="bottomRight">
           <div className="imageBox">
-            <img src="/images/qr-codeHome.png" alt="" className="rightImage" />
+            <img src={image} alt="" id="stepImage" className="rightImage" />
           </div>
         </div>
       </div>

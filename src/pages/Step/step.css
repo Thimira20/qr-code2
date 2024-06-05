@@ -55,14 +55,15 @@
 
 .rightImage {
   display: flex;
-  height: 200px;
+  height: 400px;
+  margin: 20px 10px 35px auto;
+  box-shadow: rgb(39, 138, 252) 0px 0px 0px 10px;
+  border-radius: 8px;
 }
 
 .imageBox {
   display: flex;
   align-items: center;
-  height: auto;
-  box-shadow: rgba(19, 18, 18, 0.541) 0px 25px 50px -12px;
 }
 
 .stepsList {
@@ -134,7 +135,7 @@
     flex-direction: column;
   }
   .rightImage {
-    height: 150px;
+    height: 250px;
   }
   .imageBox {
     margin-bottom: 35px;
