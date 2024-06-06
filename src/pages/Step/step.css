@@ -259,8 +259,8 @@
   content: "";
   position: absolute;
   border-radius: 50px;
-  box-shadow: 0 0 0 3px inset #fff;
-  animation: l5 2.5s infinite;
+  box-shadow: 0 0 0 3px inset #161616;
+  animation: l7 2.5s infinite;
 }
 
 .stepLoder:after {
@@ -268,7 +268,7 @@
   border-radius: 0;
 }
 
-@keyframes l5 {
+@keyframes l7 {
   0% {
     inset: 0 35px 35px 0;
   }

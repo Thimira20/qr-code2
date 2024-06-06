@@ -71,8 +71,6 @@ function Steps(props) {
           <div className="imageBox imgAnimation">
             <img src={image} alt="" id="stepImage" className="rightImage " />
           </div>
-
-          <div id="spinner"></div>
         </div>
       </div>
     </div>
