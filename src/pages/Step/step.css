@@ -2,6 +2,7 @@
   background-color: rgba(67, 0, 97, 255);
   display: flex;
   flex-direction: column;
+  padding-right: 20px;
 }
 
 .stepBoxTop {
@@ -37,6 +38,7 @@
 .stepBoxBottom {
   flex: 6;
   display: flex;
+  margin: 30px auto;
 }
 
 .bottomLeft {
@@ -51,19 +53,23 @@
   align-items: center;
   justify-content: center;
   display: flex;
+  padding: auto 20px;
 }
 
 .rightImage {
   display: flex;
   height: 400px;
-  margin: 20px 10px 35px auto;
-  box-shadow: rgb(39, 138, 252) 0px 0px 0px 10px;
+  margin: auto;
   border-radius: 8px;
 }
 
 .imageBox {
   display: flex;
   align-items: center;
+  height: fit-content;
+  margin: 20px auto;
+  background-color: rgb(62, 39, 39);
+  border-radius: 8px;
 }
 
 .stepsList {
@@ -81,7 +87,7 @@
 .stepsList:hover {
   background-color: rgb(183, 55, 229);
   color: rgba(67, 0, 97, 255);
-  border-radius: 15px;
+  border-radius: 8px;
 }
 
 .stepText {
@@ -130,7 +136,26 @@
   justify-content: center;
 }
 
-@media screen and (max-width: 630px) {
+@media screen and (max-width: 900px) {
+  .stepText {
+    font-size: 25px;
+    line-height: 40px;
+  }
+  .rightImage {
+    height: 300px;
+  }
+  .imageBox {
+    margin-bottom: 35px;
+  }
+  .stepsList {
+    padding: 8px;
+  }
+  .stepText:hover {
+    border-radius: 12px;
+  }
+}
+
+@media screen and (max-width: 680px) {
   .stepBoxBottom {
     flex-direction: column;
   }
@@ -148,6 +173,12 @@
     font-size: 35px;
     line-height: 40px;
   }
+  .stepsList {
+    padding: 6px;
+  }
+  .stepText:hover {
+    border-radius: 10px;
+  }
 }
 
 @media screen and (max-width: 400px) {
@@ -164,5 +195,109 @@
   .stepTopic {
     font-size: 30px;
     line-height: 35px;
+  }
+  .stepsList {
+    padding: 4px;
+  }
+  .stepText:hover {
+    border-radius: 5px;
+  }
+}
+
+/*-----ANIMATION----*/
+
+.imgAnimation {
+  position: relative;
+  margin: auto;
+  width: auto;
+  line-height: auto;
+  text-align: center;
+  font-size: 24px;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 7px solid rgb(0, 201, 231);
+    transition: all 0.5s;
+    border-radius: 8px;
+    animation: clippath 5s infinite linear;
+  }
+}
+
+@keyframes clippath {
+  0%,
+  100% {
+    clip-path: inset(0 0 95% 0);
+  }
+  25% {
+    border-color: rgb(3, 3, 153);
+    clip-path: inset(0 95% 0 0);
+  }
+  50% {
+    border-color: rgb(144, 16, 242);
+    clip-path: inset(95% 0 0 0);
+  }
+  75% {
+    border-color: rgb(224, 9, 244);
+    clip-path: inset(0 0 0 95%);
+  }
+}
+
+.bg::before {
+  background: rgba(255, 215, 0, 0.5);
+}
+
+/* HTML: <div class="loader"></div> */
+
+.stepLoder {
+  width: 65px;
+  aspect-ratio: 1;
+  position: relative;
+}
+
+.stepLoder:before,
+.stepLoder:after {
+  content: "";
+  position: absolute;
+  border-radius: 50px;
+  box-shadow: 0 0 0 3px inset #161616;
+  animation: l7 2.5s infinite;
+}
+
+.stepLoder:after {
+  animation-delay: -1.25s;
+  border-radius: 0;
+}
+
+@keyframes l7 {
+  0% {
+    inset: 0 35px 35px 0;
+  }
+  12.5% {
+    inset: 0 35px 0 0;
+  }
+  25% {
+    inset: 35px 35px 0 0;
+  }
+  37.5% {
+    inset: 35px 0 0 0;
+  }
+  50% {
+    inset: 35px 0 0 35px;
+  }
+  62.5% {
+    inset: 0 0 0 35px;
+  }
+  75% {
+    inset: 0 0 35px 35px;
+  }
+  87.5% {
+    inset: 0 0 35px 0;
+  }
+  100% {
+    inset: 0 35px 35px 0;
   }
 }

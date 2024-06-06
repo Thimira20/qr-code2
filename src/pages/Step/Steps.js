@@ -3,7 +3,17 @@ import "./step.css";
 import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
 
 function Steps(props) {
-  const [image, setImage] = useState("/images/step1.jpg");
+  const [image, setImage] = useState(
+    "https://github.com/Thimira20/qr-code2/blob/master/public/images/step1.jpg?raw=true"
+  );
+
+  // const showSpinner = function () {
+  //   document.getElementById("spinner").style.display = "block";
+  //   document.getElementById("spinner").className = "stepLoder";
+  // };
+  // const hideSpinner = function () {
+  //   document.getElementById("spinner").style.display = "none";
+  // };
 
   return (
     <div className="stepBox">
@@ -19,7 +29,11 @@ function Steps(props) {
 
             <button
               className="stepButton"
-              onClick={() => setImage("/images/step1.jpg")}
+              onClick={() => {
+                setImage(
+                  "https://github.com/Thimira20/qr-code2/blob/master/public/images/step1.jpg?raw=true"
+                );
+              }}
             >
               <DoubleArrowIcon className="stepIcon" />
             </button>
@@ -29,7 +43,11 @@ function Steps(props) {
 
             <button
               className="stepButton"
-              onClick={() => setImage("/images/step2.jpg")}
+              onClick={() =>
+                setImage(
+                  "https://github.com/Thimira20/qr-code2/blob/master/public/images/step2.jpg?raw=true"
+                )
+              }
             >
               <DoubleArrowIcon className="stepIcon" />
             </button>
@@ -39,15 +57,19 @@ function Steps(props) {
 
             <button
               className="stepButton"
-              onClick={() => setImage("/images/step3.jpg")}
+              onClick={() =>
+                setImage(
+                  "https://github.com/Thimira20/qr-code2/blob/master/public/images/step3.jpg?raw=true"
+                )
+              }
             >
               <DoubleArrowIcon className="stepIcon" />
             </button>
           </div>
         </div>
         <div className="bottomRight">
-          <div className="imageBox">
-            <img src={image} alt="" id="stepImage" className="rightImage" />
+          <div className="imageBox imgAnimation">
+            <img src={image} alt="" id="stepImage" className="rightImage " />
           </div>
         </div>
       </div>
