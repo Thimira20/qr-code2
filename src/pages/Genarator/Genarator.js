@@ -102,6 +102,7 @@ function Genarator(props) {
           </div>
           <div className="sizeBox">
             <select
+            
               className="selected"
               name="size"
               id="size"

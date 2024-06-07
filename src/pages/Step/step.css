@@ -183,7 +183,7 @@
 
 @media screen and (max-width: 400px) {
   .rightImage {
-    height: 100px;
+    height: 175px;
   }
   .imageBox {
     margin-bottom: 25px;
@@ -201,6 +201,9 @@
   }
   .stepText:hover {
     border-radius: 5px;
+  }
+  .imgAnimation {
+    border: 3px;
   }
 }
 
@@ -220,7 +223,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    border: 7px solid rgb(0, 201, 231);
+    border: 5px solid rgb(0, 201, 231);
     transition: all 0.5s;
     border-radius: 8px;
     animation: clippath 5s infinite linear;
