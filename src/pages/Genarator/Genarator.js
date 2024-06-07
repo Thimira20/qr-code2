@@ -6,6 +6,9 @@ import { toPng } from "html-to-image";
 function Genarator(props) {
   const [value, setValue] = useState();
   const [size, setSize] = useState(300);
+  const [animate, setAnimate] = useState(false);
+  //setAnimation use to avoid animation repeating when click the genarate
+
   //const qr = document.getElementById(".qrBox");
 
   // const downloadBtn = function () {
@@ -29,21 +32,24 @@ function Genarator(props) {
     if (value === "") {
       alert("Please give your Input");
     } else {
-      showSpinner();
-      setTimeout(() => {
-        hideSpinner();
-        clearUI();
-        const link = document.createElement("button");
-        link.id = "downBtn";
-        link.classList = "delButton";
-        link.addEventListener("click", () => {
-          downloadBtn();
+      if (!animate) {
+        setAnimate(true);
+        showSpinner();
+        setTimeout(() => {
           hideSpinner();
-        });
+          clearUI();
+          const link = document.createElement("button");
+          link.id = "downBtn";
+          link.classList = "delButton";
+          link.addEventListener("click", () => {
+            downloadBtn();
+            hideSpinner();
+          });
 
-        link.innerHTML = "Download";
-        document.getElementById("downloadBox").appendChild(link);
-      }, 2000);
+          link.innerHTML = "Download";
+          document.getElementById("downloadBox").appendChild(link);
+        }, 2000);
+      }
     }
   }
   const clearUI = function () {
@@ -62,6 +68,10 @@ function Genarator(props) {
           link.classList = "delButton";
           link.download = "qr-code.png";
           link.innerHTML = "Download";
+
+          link.addEventListener("click", (animate) => {
+            setAnimate(!animate);
+          });
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
@@ -96,13 +106,13 @@ function Genarator(props) {
               onChange={(e) => {
                 setValue(e.target.value);
                 clearUI();
+                setAnimate(false);
               }}
               className="qrInput"
             />
           </div>
           <div className="sizeBox">
             <select
-            
               className="selected"
               name="size"
               id="size"
@@ -117,10 +127,18 @@ function Genarator(props) {
               <option value="300" defaultValue={300}>
                 300x300
               </option>
-              <option value="400">400x400</option>
+              {/* <option value="400">400x400</option>
               <option value="500">500x500</option>
               <option value="600">600x600</option>
-              <option value="700">700x700</option>
+              <option value="700">700x700</option> */}
+              {window.innerWidth > 500 && (
+                <>
+                  <option value="400">400x400</option>
+                  <option value="500">500x500</option>
+                  <option value="600">600x600</option>
+                  <option value="700">700x700</option>
+                </>
+              )}
             </select>
           </div>
         </div>

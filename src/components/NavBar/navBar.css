@@ -104,7 +104,7 @@
 .sidebar {
   display: none;
   position: fixed;
-  top: 0;
+  top: 8px;
   right: 8px;
   height: 50%;
   width: 40%;
@@ -144,7 +144,7 @@
   text-align: center;
   width: 100%;
   cursor: pointer;
-  margin: 15px auto;
+  margin: 10px auto;
   z-index: 1002;
   transition: background-color 0.5s, color 0.5s;
 }
