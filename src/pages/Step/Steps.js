@@ -39,7 +39,11 @@ function Steps(props) {
 
             <button
               className="stepButton"
-              onClick={() => setImage("/images/step3.jpg")}
+              onClick={() =>
+                setImage(
+                  "https://github.com/Thimira20/qr-code2/blob/master/public/images/step3.jpg?raw=true"
+                )
+              }
             >
               <DoubleArrowIcon className="stepIcon" />
             </button>

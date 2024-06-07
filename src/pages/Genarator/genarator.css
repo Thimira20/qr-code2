@@ -4,6 +4,8 @@
   height: auto;
   max-height: max-content;
   min-height: 700;
+  width: 100%;
+  left: 0;
 }
 
 .genaratorBoxTop {

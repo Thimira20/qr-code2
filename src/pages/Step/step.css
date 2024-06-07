@@ -166,3 +166,18 @@
     line-height: 35px;
   }
 }
+
+/*animation*/
+
+@keyframes zoomIn {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.5);
+  }
+}
+
+.zoom-in {
+  animation: zoomIn 0.5s forwards;
+}
