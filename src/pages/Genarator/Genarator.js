@@ -7,6 +7,18 @@ function Genarator(props) {
   const [value, setValue] = useState();
   const [size, setSize] = useState(300);
   const [animate, setAnimate] = useState(false);
+  const [qrColor, setQrColor] = useState("#000000"); // Default color is black
+  const customColors = [
+    "#ffffff",
+    "#FF0000",
+    "#00FF00",
+    "#0000FF",
+    "#FFFF00",
+    "#fa2dfa",
+    "#00FFFF",
+    "purple",
+    "orange",
+  ];
   //setAnimation use to avoid animation repeating when click the genarate
 
   //const qr = document.getElementById(".qrBox");
@@ -141,6 +153,16 @@ function Genarator(props) {
               )}
             </select>
           </div>
+          <div className="colorBox">
+            {customColors.map((color) => (
+              <button
+                key={color}
+                className="colorButton"
+                style={{ backgroundColor: color }}
+                onClick={() => setQrColor(color)}
+              />
+            ))}
+          </div>
         </div>
 
         <div className="buttonBox">
@@ -156,7 +178,7 @@ function Genarator(props) {
             <QRCode
               title="easyQR"
               value={value}
-              bgColor={"#FFFFFF"}
+              bgColor={qrColor}
               fgColor={"#000000"}
               size={size}
             />
