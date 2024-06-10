@@ -7,7 +7,7 @@ function Genarator(props) {
   const [value, setValue] = useState();
   const [size, setSize] = useState(300);
   const [animate, setAnimate] = useState(false);
-  const [qrColor, setQrColor] = useState("#000000"); // Default color is black
+  const [qrColor, setQrColor] = useState("#ffffff"); // Default color is black
   const customColors = [
     "#ffffff",
     "#FF0000",
@@ -19,6 +19,7 @@ function Genarator(props) {
     "purple",
     "orange",
   ];
+
   //setAnimation use to avoid animation repeating when click the genarate
 
   //const qr = document.getElementById(".qrBox");
@@ -102,6 +103,28 @@ function Genarator(props) {
     document.getElementById("spinner").style.display = "none";
   };
 
+  const g = document.getElementById("genBtn");
+  const genrated = function () {
+    setTimeout(() => {
+      g.innerHTML = "Genrated";
+    }, 1900);
+    g.innerHTML = "Genrating...";
+    console.log("correct");
+  };
+  const notGenrated = function () {
+    g.innerHTML = "Genrate";
+    console.log("incorrect");
+  };
+
+  function handleClick() {
+    g.classList.add("genrating"); // Add the "clicked" class to change color
+    setTimeout(() => {
+      g.classList.remove("genrating"); // Remove the "clicked" class after a delay
+    }, 1900);
+  }
+
+  // Add event listener to the button
+
   return (
     <div className="genaratorBox">
       <div className="genaratorBoxTop">
@@ -119,6 +142,8 @@ function Genarator(props) {
                 setValue(e.target.value);
                 clearUI();
                 setAnimate(false);
+
+                notGenrated();
               }}
               className="qrInput"
             />
@@ -132,6 +157,8 @@ function Genarator(props) {
               onChange={(e) => {
                 setSize(parseInt(e.target.value === "" ? 0 : e.target.value));
                 clearUI();
+                setAnimate(false);
+                notGenrated();
               }}
             >
               <option value="100">100x100</option>
@@ -166,7 +193,15 @@ function Genarator(props) {
         </div>
 
         <div className="buttonBox">
-          <button onClick={showDownload} className="genButton">
+          <button
+            onClick={() => {
+              showDownload();
+              handleClick();
+              genrated();
+            }}
+            className="genButton"
+            id="genBtn"
+          >
             Genarate
           </button>
         </div>

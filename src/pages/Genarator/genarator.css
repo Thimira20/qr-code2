@@ -135,6 +135,32 @@
   color: rgba(67, 0, 97, 255);
 }
 
+.genrating {
+  display: flex;
+  padding: 7px 20px 7px 20px;
+  font-size: 14px;
+  border-radius: 20px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  /* transition: background-color 0.3s ease; */
+  animation: example 2.2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes example {
+  from {
+    background-color: rgb(255, 255, 255);
+  }
+  to {
+    background-color: rgb(9, 230, 68);
+  }
+}
+
+.genButton.clicked {
+  background-color: rgb(19, 227, 19);
+  /* New background color when clicked */
+}
+
 .genaratorBoxDown {
   flex: 6;
   align-items: center;

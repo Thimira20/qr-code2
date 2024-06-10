@@ -205,6 +205,12 @@
   .imgAnimation {
     border: 3px;
   }
+  .stepBox {
+    padding-right: 0;
+  }
+  .stepBoxTop {
+    padding: 15px;
+  }
 }
 
 /*-----ANIMATION----*/
