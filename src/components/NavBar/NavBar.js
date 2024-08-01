@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import "./navBar.css";
+import Login from "../Login/Login";
+import Signup from "../SignUp/Signup";
+import { getCurrentUser, logout } from "../../services/authService";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
-function NavBar(props) {
+function NavBar({ user, setUser }) {
+  let currentUser = getCurrentUser();
   const [sidebarOpen, setSidebarOpen] = useState(false);
-
+  const [loginModalOpen, setLoginModalOpen] = useState(false);
+  const [signupModalOpen, setSignupModalOpen] = useState(false);
   const handleHomeClick = () => {
     document
       .getElementById("homeSection")
@@ -35,6 +41,24 @@ function NavBar(props) {
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
+  const handleLoginClick = () => {
+    setLoginModalOpen(true);
+  };
+
+  const closeLoginModal = () => {
+    setLoginModalOpen(false);
+  };
+  const handleSignupClick = () => {
+    setSignupModalOpen(true);
+  };
+
+  const closeSignupModal = () => {
+    setSignupModalOpen(false);
+  };
+  const handleLogout = () => {
+    logout();
+    setUser(null);
+  };
 
   return (
     <div>
@@ -48,6 +72,26 @@ function NavBar(props) {
           <button className="navButton" onClick={handleHomeClick}>
             Home
           </button>
+
+          {user ? (
+            <>
+              <button className="navButton" onClick={handleLogout}>
+                Logout
+              </button>
+              <AccountCircleIcon />
+              <div className="navButton">{currentUser.username}</div>
+            </>
+          ) : (
+            <>
+              <button className="navButton" onClick={handleLoginClick}>
+                Login
+              </button>
+              <button className="navButton" onClick={handleSignupClick}>
+                Signup
+              </button>
+            </>
+          )}
+
           <button className="navButton" onClick={handleStepsClick}>
             Steps
           </button>
@@ -66,6 +110,26 @@ function NavBar(props) {
         <button className="sidebarButton" onClick={handleHomeClick}>
           Home
         </button>
+
+        {user ? (
+          <>
+            <button className="sidebarButton" onClick={handleLogout}>
+              Logout
+            </button>
+
+            <div className="sidebarButton">{currentUser.username}</div>
+          </>
+        ) : (
+          <>
+            <button className="sidebarButton" onClick={handleLoginClick}>
+              Login
+            </button>
+            <button className="sidebarButton" onClick={handleSignupClick}>
+              Signup
+            </button>
+          </>
+        )}
+
         <button className="sidebarButton" onClick={handleStepsClick}>
           Steps
         </button>
@@ -79,6 +143,10 @@ function NavBar(props) {
       <button className="menuButton" onClick={toggleSidebar}>
         ☰
       </button>
+      {loginModalOpen && (
+        <Login setUser={setUser} closeLoginModal={closeLoginModal} />
+      )}
+      {signupModalOpen && <Signup closeSignupModal={closeSignupModal} />}
     </div>
   );
 }

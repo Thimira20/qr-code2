@@ -1,0 +1,51 @@
+.heading {
+    position: relative;
+    font-size: 5rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.87);
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #ff8a06, #ffc857);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    outline: 3px solid rgba(255, 255, 255, 0.2);
+    outline-offset: 3px;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .heading::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, #ff8a06, #ffc857);
+    opacity: 0.5;
+    filter: blur(20px);
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .heading::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, #ff8a06, #ffc857);
+    opacity: 0.5;
+    filter: blur(20px);
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .heading.animate {
+    transform: translateY(-10px);
+  }
+  
+  .heading.animate::after,
+  .heading.animate::before {
+    opacity: 0;
+  }

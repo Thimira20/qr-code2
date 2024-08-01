@@ -106,14 +106,15 @@
   position: fixed;
   top: 0;
   right: 8px;
-  height: 50%;
+  height: 70%;
   width: 40%;
   /* background-color: #716d6d; */
   padding: 20px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
   z-index: 1000;
   background-color: none;
-  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .sidebar.open {

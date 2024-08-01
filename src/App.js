@@ -2,6 +2,7 @@ import NavBar from "./components/NavBar/NavBar";
 import AboutUs from "./pages/AboutUS/AboutUs";
 import Genarator from "./pages/Genarator/Genarator";
 import Home from "./pages/Home/Home";
+import Profile from "./pages/Profile/Profile";
 import Steps from "./pages/Step/Steps";
 
 function App() {
@@ -13,6 +14,9 @@ function App() {
       </div>
       <div id="stepsSection">
         <Steps />
+      </div>
+      <div>
+        <Profile />
       </div>
       <div id="generatorSection">
         <Genarator />
