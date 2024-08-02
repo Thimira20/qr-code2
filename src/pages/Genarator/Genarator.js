@@ -3,27 +3,36 @@ import "./genarator.css";
 import QrCodeIcon from "@mui/icons-material/QrCode";
 import QRCode from "react-qr-code";
 import { toPng } from "html-to-image";
+import axios from "axios";
+import { getCurrentUser } from "../../services/authService";
 function Genarator(props) {
+  let currentUser = getCurrentUser();
   const [value, setValue] = useState();
   const [size, setSize] = useState(300);
-  //const qr = document.getElementById(".qrBox");
-
-  // const downloadBtn = function () {
-  //   setTimeout(() => {
-  //     const saveUrl = qr.querySelector("svg").xmlns;
-  //     createSaveBtn(saveUrl);
-  //   }, 50);
-  // };
-  // const createSaveBtn = function (saveUrl) {
-  //   const link = document.createElement("a");
-  //   link.id = "savelink";
-  //   link.classList = "delButton";
-  //   link.href = saveUrl;
-  //   link.download = "qrcode";
-  //   link.innerHTML = "Download";
-  //   document.getElementById("genaratorBoxBottom").appendChild(link);
-  // };
   const qrRef = useRef();
+
+  const saveQrCode = async () => {
+    if (qrRef.current) {
+      toPng(qrRef.current)
+        .then(async (dataUrl) => {
+          const qrImageBase64 = dataUrl.split(",")[1]; // Extract base64 image
+          const response = await axios.post(
+            "http://localhost:3000/api/profile-data/save-qr-code",
+            {
+              userId: currentUser.id, // Assuming userId is passed as a prop
+              qrText: value,
+              qrImageBase64,
+            }
+          );
+
+          alert(response.data.message);
+        })
+        .catch((err) => {
+          console.error("Failed to save QR code:", err);
+          console.log(currentUser.id);
+        });
+    }
+  };
 
   function showDownload() {
     if (value === "") {
@@ -127,6 +136,9 @@ function Genarator(props) {
         <div className="buttonBox">
           <button onClick={showDownload} className="genButton">
             Genarate
+          </button>
+          <button onClick={saveQrCode} className="genButton">
+            Save
           </button>
         </div>
         <div className="spacingBox"></div>

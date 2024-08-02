@@ -31,7 +31,7 @@ function Profile(props) {
       <div className="top">Hi {user.username}</div>
       <div className="bottom">
         <div className="left">
-          <TitlebarBelowImageList />
+          <TitlebarBelowImageList userId={user.id} />
           {/* <div className="leftTop">
             <img
               src="https://www.ncsc.gov.uk/images/QR-IMAGE.png"
