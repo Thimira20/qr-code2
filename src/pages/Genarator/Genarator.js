@@ -3,11 +3,15 @@ import "./genarator.css";
 import QrCodeIcon from "@mui/icons-material/QrCode";
 import QRCode from "react-qr-code";
 import { toPng } from "html-to-image";
+import axios from "axios";
+import { getCurrentUser } from "../../services/authService";
+import BookmarkIcon from "@mui/icons-material/Bookmark";
 function Genarator(props) {
   const [value, setValue] = useState();
   const [size, setSize] = useState(300);
   const [animate, setAnimate] = useState(false);
   const [qrColor, setQrColor] = useState("#ffffff"); // Default color is black
+  const [save, setSave] = useState(false);
   const customColors = [
     "#ffffff",
     "#FF0000",
@@ -19,6 +23,8 @@ function Genarator(props) {
     "purple",
     "orange",
   ];
+  const qrRef = useRef();
+  let currentUser = getCurrentUser();
 
   //setAnimation use to avoid animation repeating when click the genarate
 
@@ -39,7 +45,28 @@ function Genarator(props) {
   //   link.innerHTML = "Download";
   //   document.getElementById("genaratorBoxBottom").appendChild(link);
   // };
-  const qrRef = useRef();
+  const saveQrCode = async () => {
+    if (qrRef.current) {
+      toPng(qrRef.current)
+        .then(async (dataUrl) => {
+          const qrImageBase64 = dataUrl.split(",")[1]; // Extract base64 image
+          const response = await axios.post(
+            "http://localhost:3000/api/profile-data/save-qr-code",
+            {
+              userId: currentUser.id, // Assuming userId is passed as a prop
+              qrText: value,
+              qrImageBase64,
+            }
+          );
+          setSave(true);
+          alert(response.data.message);
+        })
+        .catch((err) => {
+          console.error("Failed to save QR code:", err);
+          console.log(currentUser.id);
+        });
+    }
+  };
 
   function showDownload() {
     if (value === "") {
@@ -106,13 +133,13 @@ function Genarator(props) {
   const g = document.getElementById("genBtn");
   const genrated = function () {
     setTimeout(() => {
-      g.innerHTML = "Genrated";
+      g.innerHTML = "Generated";
     }, 1900);
-    g.innerHTML = "Genrating...";
+    g.innerHTML = "Generating...";
     console.log("correct");
   };
   const notGenrated = function () {
-    g.innerHTML = "Genrate";
+    g.innerHTML = "Generate";
     console.log("incorrect");
   };
 
@@ -128,7 +155,7 @@ function Genarator(props) {
   return (
     <div className="genaratorBox">
       <div className="genaratorBoxTop">
-        <p className="genTopic">Genrate Yor Own QR</p>
+        <p className="genTopic">Genarate Yor Own QR</p>
       </div>
       <div className="genaratorBoxUp">
         <div className="spacingBox"></div>
@@ -142,7 +169,7 @@ function Genarator(props) {
                 setValue(e.target.value);
                 clearUI();
                 setAnimate(false);
-
+                setSave(false);
                 notGenrated();
               }}
               className="qrInput"
@@ -159,6 +186,7 @@ function Genarator(props) {
                 clearUI();
                 setAnimate(false);
                 notGenrated();
+                setSave(false);
               }}
             >
               <option value="100">100x100</option>
@@ -186,7 +214,10 @@ function Genarator(props) {
                 key={color}
                 className="colorButton"
                 style={{ backgroundColor: color }}
-                onClick={() => setQrColor(color)}
+                onClick={() => {
+                  setQrColor(color);
+                  setSave(false);
+                }}
               />
             ))}
           </div>
@@ -202,7 +233,7 @@ function Genarator(props) {
             className="genButton"
             id="genBtn"
           >
-            Genarate
+            Generate
           </button>
         </div>
         <div className="spacingBox"></div>
@@ -222,6 +253,11 @@ function Genarator(props) {
       </div>
 
       <div className="genaratorBoxBottom" id="downloadBox">
+        {value && (
+          <button onClick={saveQrCode} className="saveButton">
+            {save ? "saved" : "save"} <BookmarkIcon />
+          </button>
+        )}
         <div className="" id="spinner"></div>
         {/* <button
           onClick={downloadBtn}
